@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+import { BACKEND_URL } from './config';
 
 import './App.css';
 
@@ -18,7 +18,7 @@ class App extends React.Component {
 
 
   getBlogPost = () => {
-    axios.get('/api')
+    axios.get(BACKEND_URL + '/api')
       .then((response) => {
         const data = response.data;
         this.setState({ posts: data });
@@ -45,7 +45,7 @@ class App extends React.Component {
 
 
     axios({
-      url: '/api/save',
+      url:BACKEND_URL + '/api/save',
       method: 'POST',
       data: payload
     })
